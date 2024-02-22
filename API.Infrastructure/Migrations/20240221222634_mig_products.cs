@@ -1,11 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿#nullable disable
 
-#nullable disable
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Data.API.Migrations
 {
-    /// <inheritdoc />
-    public partial class mig_products : Migration
+	/// <inheritdoc />
+	public partial class mig_products : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

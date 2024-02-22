@@ -1,6 +1,5 @@
-﻿using Data.API.DataContext;
-using Data.API.DbModels;
-using Microsoft.AspNetCore.Http;
+﻿using API.Core.DbModels;
+using API.Infrastructure.DataContext;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
