@@ -10,9 +10,9 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace API.Controllers
 {
-	[Route("api/[controller]")]
-	[ApiController]
-	public class ProductsController : ControllerBase
+	//[Route("api/[controller]")]
+	//[ApiController]
+	public class ProductsController : BaseApiController
 	{
 		//private readonly StoreContext _context;
 		//private readonly IProductRepository _productRepository;
