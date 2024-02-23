@@ -15,13 +15,13 @@
 			switch (statusCode)
 			{
 				case 400:
-					errorMessage ="A Bad request";
+					errorMessage ="A bad request";
 					break;
 				case 401:
 					errorMessage= "Authorized error";
 					break;
 				case 404:
-					errorMessage= "Authorized error";
+					errorMessage= "Resource not found";
 					break;
 				case 500:
 					errorMessage= "Server error ";
