@@ -12,6 +12,13 @@ builder.Services.AddApplicationServices();
      //AddSwaggerDocumentation
 builder.Services.AddSwaggerDocumentation();
 builder.Services.AddAutoMapper(typeof(MappingProfiles));
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy("CorsPolicy", policy =>
+    {
+        policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200");
+    });
+});
 
 // Add services to the container.
 builder.Services.AddDbContext<StoreContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -32,8 +39,9 @@ app.UseMiddleware<ExceptionMiddleware>();
         //swagger
 app.UserSwaggerDocumentation();
 app.UseStatusCodePagesWithReExecute("/error/{0}");//hata yönetimi
-
+app.UseStaticFiles();
 app.UseHttpsRedirection();
+app.UseCors("CorsPolicy");
 
 app.UseAuthorization();
 

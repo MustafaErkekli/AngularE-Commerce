@@ -22,13 +22,13 @@ namespace API.Core.Specifications
 		public string? Sort { get; set; }
 
 		//TODO Encapsulation
-		private string _search;
-		public string Search
+		private string? _search;
+		public string? Search
 		{
 			get { return _search; }
 			set
 			{
-				 _search = value.ToLower();
+				 _search = value?.ToLower();
 			}
 		}
 
