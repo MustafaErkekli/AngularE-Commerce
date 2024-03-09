@@ -1,18 +1,19 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-paging-header',
   templateUrl: './paging-header.component.html',
-  styleUrl: './paging-header.component.css'
+  styleUrls: ['./paging-header.component.css']
 })
 export class PagingHeaderComponent implements OnInit {
-  @Input()pageNumber!: number;
-  @Input()pageSize!:number;
-  @Input()totalCount!:number;
 
-  constructor(){}
+  @Input() pageNumber:number;
+  @Input() pageSize:number;
+  @Input() totalCount:number;
+
+  constructor() { }
+
   ngOnInit(): void {
-  
-}
+  }
 
 }
