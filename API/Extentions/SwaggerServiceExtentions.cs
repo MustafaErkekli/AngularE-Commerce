@@ -17,7 +17,7 @@ namespace API.Extentions
 			app.UseSwagger();
 			app.UseSwaggerUI(c =>
 			{
-				c.SwaggerEndpoint("/swagger/v1/swagger.json", "E-Commerce Ap");
+				c.SwaggerEndpoint("/swagger/v1/swagger.json", "E-Commerce App");
 			});
 			return app;
 		}

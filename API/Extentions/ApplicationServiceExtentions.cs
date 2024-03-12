@@ -9,6 +9,7 @@ namespace API.Extentions
 		{
 			services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
 			services.AddScoped<IProductRepository, ProductRepository>();
+			services.AddScoped<IBasketRepository, BasketRepository>();
 			return services;
 		}
 	}

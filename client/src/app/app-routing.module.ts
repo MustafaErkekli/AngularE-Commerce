@@ -6,6 +6,8 @@ import { ProductDetailsComponent } from './shop/product-details/product-details.
 import { ServerErrorComponent } from './core/server-error/server-error.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { TestErrorComponent } from './core/test-error/test-error.component';
+import { BasketComponent } from './basket/basket.component';
+import { CheckoutModule } from './checkout/checkout.module';
 
 const routes: Routes = [
   {path:'',component:HomeComponent,data:{breadcrumb:'Home Page'}},
@@ -14,6 +16,9 @@ const routes: Routes = [
   {path:'not-found',component:NotFoundComponent,data:{breadcrumb:'Not Found'}},
   {path:'shop',component:ShopComponent,data:{breadcrumb:'Shop'}},
   {path:'shop/:id',component:ProductDetailsComponent,data:{breadcrumb:{alias:'shopDetail'}}},
+  // {path:'basket',component:BasketComponent,data:{breadcrumb:{alias:'Basket'}}},
+  {path:'basket',loadChildren:()=>import('./basket/basket.module').then(mod=>mod.BasketModule),data:{breadcrumb:{alias:'Basket'}}},
+  {path:'checkout',loadChildren:()=>import('./checkout/checkout.module').then(mod=>mod.CheckoutModule),data:{breadcrumb:{alias:'Basket'}}},
   {path:'**',redirectTo:'',pathMatch:'full'}
 ];
 

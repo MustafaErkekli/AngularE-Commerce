@@ -11,6 +11,8 @@ import { HomeModule } from './home/home.module';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
 import{NgxSpinnerModule} from 'ngx-spinner';
+import { BasketComponent } from './basket/basket.component';
+import { BasketModule } from './basket/basket.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,7 @@ import{NgxSpinnerModule} from 'ngx-spinner';
     CoreModule,
     ShopModule,
     HomeModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:ErrorInterceptor,multi:true},

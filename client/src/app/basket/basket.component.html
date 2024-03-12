@@ -1,0 +1,81 @@
+<div *ngIf="basket!=null"class="container mt-5">
+    <div class="pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 py-5 mb-1">
+                    <div class="table-responsive">
+                        <div class="table">
+                            <table class="table table-bordered table-dark">
+                                <thead>
+                                    <tr>
+                                        <th class="border-0 bg-dark" scope="col">
+                                            <div class="p-2 px-3 text-uppercase">
+                                                Product
+                                            </div>
+                                        </th>
+                                        <th scope="col"clas="border-0 bg-light ml-5">Type</th>
+                                        <th scope="col"clas="border-0 bg-light ml-5">Price</th>
+                                        <th scope="col"clas="border-0 bg-light ml-5">Quantity</th>
+                                        <th scope="col"clas="border-0 bg-light ml-5">Total</th>
+                                        <th scope="col"clas="border-0 bg-light ml-5">Remove</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of basket.items">
+                                      <th scope="col"class="md-6 ml-5">
+                                        <img src="{{item.pictureUrl}}" alt="{{item.productName}}" clas="img-fluid" style="max-height: 50px;">
+                                        <div class="ml-3 d-inline-block align-middle">
+                                            <h5 class="mb-0 ">
+                                                <a routerLink="/shop/{{item.id}}" class="text-light">
+                                                    <span class="font-weight-normal font-italic d-inline-block text-light ml-8"></span>
+                                                {{item.productName}}
+                                                </a>
+                                            </h5>
+                                        </div>
+                                      </th>
+                                      <td class="align-middle ml-5"><strong>
+                                        <div class="ml-3 d-inline-block align-middle">
+                                            <h5 class="mb-0">
+                                                <a routerLink="/shop/{{item.id}}" class="text-light">
+                                                    <span  class="font-weight-normal font-italic d-inline-block text-light">{{item.type}}</span>
+                                                </a>
+                                            </h5>
+                                        </div>
+                                      </strong></td>
+                                      <td class="align-middle ml-5"><strong>{{item.price |currency}}</strong></td>
+                                      <td class="align-middle ml-5">
+                                        <div class="d-flex align-items-center">
+                                            <i (click)="decrementItemQuantity(item)" class="fa fa-minus-circle text-warning mr-2"
+                                                style="cursor: pointer;font-size: 2em;"></i>
+                                                <span class="font-weight-bold" style="font-size: 1.5em;">{{item.quantity}}</span>
+                                                <i (click)="incrementItemQuantity(item)" class="fa fa-plus-circle text-warning mr-2"
+                                                style="cursor: pointer;font-size: 2em;"></i>
+                                        </div>
+                                      </td>
+                                      <td class="align-middle ml-5">
+                                        <strong>{{item.price*item.quantity|currency}}</strong>
+                                      </td>
+                                      <td class="align-middle text-center">
+                                        <a class="text-muted">
+                                            <i (click)="removeBasketItem(item)" class="fa fa-trash" style="font-size: 2em;cursor: pointer;"></i>
+                                        </a>
+                                      </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 offset-6">
+                    <app-order-totals>
+                    </app-order-totals>
+                    <a routerLink="/checkout"class="btn btn-outline-primary btn-block py-2">
+                      <strong><b> Ödeme Yap</b></strong> 
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
