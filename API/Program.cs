@@ -16,7 +16,7 @@ using StackExchange.Redis;
 		builder.Services.AddScoped<StoreContext>();
 		//ApplicationServiceExtentions
 		builder.Services.AddApplicationServices();
-		builder.Services.AddIdentityService();
+		builder.Services.AddIdentityService(builder.Configuration);
 
 		//AddSwaggerDocumentation
 		builder.Services.AddSwaggerDocumentation();
@@ -78,7 +78,7 @@ using StackExchange.Redis;
 		app.UseStaticFiles();
 		app.UseHttpsRedirection();
 		app.UseCors("CorsPolicy");
-
+		app.UseAuthentication();
 		app.UseAuthorization();
 
 		app.MapControllers();
