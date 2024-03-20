@@ -11,8 +11,8 @@ import { HomeModule } from './home/home.module';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
 import{NgxSpinnerModule} from 'ngx-spinner';
-import { BasketComponent } from './basket/basket.component';
-import { BasketModule } from './basket/basket.module';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,12 +27,14 @@ import { BasketModule } from './basket/basket.module';
     CoreModule,
     ShopModule,
     HomeModule,
+    CommonModule,
+    FormsModule,
     NgxSpinnerModule,
+    
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:ErrorInterceptor,multi:true},
-    {provide:HTTP_INTERCEPTORS,useClass:LoadingInterceptor,multi:true},
-    provideClientHydration()
+    {provide:HTTP_INTERCEPTORS,useClass:LoadingInterceptor,multi:true}
   ],
   bootstrap: [AppComponent]
 })

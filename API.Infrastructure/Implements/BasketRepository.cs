@@ -14,7 +14,7 @@ namespace API.Infrastructure.Implements
 			_database = redis.GetDatabase();
 		}
 
-		public async Task<bool> DeleteBasket(string basketId)
+		public async Task<bool> DeleteBasketAsync(string basketId)
 		{
 			return await _database.KeyDeleteAsync(basketId);
 		}
